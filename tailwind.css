@@ -1,0 +1,36 @@
+.mt-3 {
+  margin-top: 0.75rem
+}
+
+.flex {
+  display: flex
+}
+
+.h-2 {
+  height: 0.5rem
+}
+
+.h-4 {
+  height: 1rem
+}
+
+.h-3 {
+  height: 0.75rem
+}
+
+.flex-col {
+  flex-direction: column
+}
+
+.items-center {
+  align-items: center
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem
+}
+
+.font-bold {
+  font-weight: 700
+}
