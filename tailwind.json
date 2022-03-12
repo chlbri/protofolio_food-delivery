@@ -1,7 +1,7 @@
 {
-	"ml-2": {
+	"ml-[18px]": {
 		"style": {
-			"marginLeft": 8
+			"marginLeft": 18
 		}
 	},
 	"mt-[7px]": {
@@ -9,14 +9,14 @@
 			"marginTop": 7
 		}
 	},
+	"ml-[5px]": {
+		"style": {
+			"marginLeft": 5
+		}
+	},
 	"mt-4": {
 		"style": {
 			"marginTop": 16
-		}
-	},
-	"mt-3": {
-		"style": {
-			"marginTop": 12
 		}
 	},
 	"mt-[34px]": {
@@ -24,14 +24,19 @@
 			"marginTop": 34
 		}
 	},
-	"mt-[21px]": {
+	"mr-[10px]": {
 		"style": {
-			"marginTop": 21
+			"marginRight": 10
 		}
 	},
-	"ml-[8px]": {
+	"mt-[40px]": {
 		"style": {
-			"marginLeft": 8
+			"marginTop": 40
+		}
+	},
+	"mt-[8px]": {
+		"style": {
+			"marginTop": 8
 		}
 	},
 	"mt-[9px]": {
@@ -39,9 +44,29 @@
 			"marginTop": 9
 		}
 	},
+	"ml-[11px]": {
+		"style": {
+			"marginLeft": 11
+		}
+	},
+	"ml-[4px]": {
+		"style": {
+			"marginLeft": 4
+		}
+	},
 	"mt-px": {
 		"style": {
 			"marginTop": 1
+		}
+	},
+	"mt-[21px]": {
+		"style": {
+			"marginTop": 21
+		}
+	},
+	"ml-[13px]": {
+		"style": {
+			"marginLeft": 13
 		}
 	},
 	"flex": {
@@ -54,14 +79,14 @@
 			"width": "100%"
 		}
 	},
-	"w-2": {
-		"style": {
-			"width": 8
-		}
-	},
 	"w-avatar": {
 		"style": {
 			"width": 45
+		}
+	},
+	"w-card": {
+		"style": {
+			"width": 195
 		}
 	},
 	"w-card_xl": {
@@ -69,29 +94,14 @@
 			"width": 312
 		}
 	},
-	"w-[11px]": {
+	"max-w-full": {
 		"style": {
-			"width": 11
-		}
-	},
-	"w-[2px]": {
-		"style": {
-			"width": 2
-		}
-	},
-	"w-[3px]": {
-		"style": {
-			"width": 3
+			"maxWidth": "100%"
 		}
 	},
 	"flex-row": {
 		"style": {
 			"flexDirection": "row"
-		}
-	},
-	"flex-col": {
-		"style": {
-			"flexDirection": "column"
 		}
 	},
 	"items-center": {
@@ -112,12 +122,12 @@
 			"borderBottomLeftRadius": 9999
 		}
 	},
-	"rounded-xl": {
+	"rounded-card": {
 		"style": {
-			"borderTopLeftRadius": 12,
-			"borderTopRightRadius": 12,
-			"borderBottomRightRadius": 12,
-			"borderBottomLeftRadius": 12
+			"borderTopLeftRadius": 10,
+			"borderTopRightRadius": 10,
+			"borderBottomRightRadius": 10,
+			"borderBottomLeftRadius": 10
 		}
 	},
 	"rounded-card_xl": {
@@ -157,18 +167,24 @@
 			"backgroundColor": "rgb(255 255 255 / var(--tw-bg-opacity))"
 		}
 	},
+	"bg-bgray": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(128 128 128 / var(--tw-bg-opacity))"
+		}
+	},
 	"bg-black": {
 		"style": {
 			"--tw-bg-opacity": 1,
 			"backgroundColor": "rgb(0 0 0 / var(--tw-bg-opacity))"
 		}
 	},
-	"p-[15px]": {
+	"p-[10px]": {
 		"style": {
-			"paddingTop": 15,
-			"paddingRight": 15,
-			"paddingBottom": 15,
-			"paddingLeft": 15
+			"paddingTop": 10,
+			"paddingRight": 10,
+			"paddingBottom": 10,
+			"paddingLeft": 10
 		}
 	},
 	"px-4": {
@@ -183,6 +199,11 @@
 			"paddingBottom": 4
 		}
 	},
+	"pb-[25px]": {
+		"style": {
+			"paddingBottom": 25
+		}
+	},
 	"pt-[25px]": {
 		"style": {
 			"paddingTop": 25
@@ -191,6 +212,26 @@
 	"pt-[3px]": {
 		"style": {
 			"paddingTop": 3
+		}
+	},
+	"pt-[8px]": {
+		"style": {
+			"paddingTop": 8
+		}
+	},
+	"pr-[10px]": {
+		"style": {
+			"paddingRight": 10
+		}
+	},
+	"pt-[34px]": {
+		"style": {
+			"paddingTop": 34
+		}
+	},
+	"pt-[18px]": {
+		"style": {
+			"paddingTop": 18
 		}
 	},
 	"text-h1": {
@@ -214,13 +255,6 @@
 			"letterSpacing": 0
 		}
 	},
-	"text-title": {
-		"style": {
-			"fontSize": 18,
-			"lineHeight": 25,
-			"letterSpacing": 0
-		}
-	},
 	"text-base": {
 		"style": {
 			"fontSize": 14,
@@ -228,10 +262,24 @@
 			"letterSpacing": 0
 		}
 	},
+	"text-xs": {
+		"style": {
+			"fontSize": 10,
+			"lineHeight": 14,
+			"letterSpacing": 0
+		}
+	},
 	"text-sm": {
 		"style": {
 			"fontSize": 12,
 			"lineHeight": 17,
+			"letterSpacing": 0
+		}
+	},
+	"text-title": {
+		"style": {
+			"fontSize": 18,
+			"lineHeight": 25,
 			"letterSpacing": 0
 		}
 	},
@@ -264,19 +312,15 @@
 			"color": "rgb(128 128 128 / var(--tw-text-opacity))"
 		}
 	},
-	"aspect-4*3": {
+	"scrollbar-hide": {
 		"style": {
-			"aspectRatio": 1.3333333333333333
+			"MsOverflowStyle": "none",
+			"scrollbarWidth": "none"
 		}
 	},
-	"aspect-2*1": {
+	"scrollbar-hide::-webkit-scrollbar": {
 		"style": {
-			"aspectRatio": 2
-		}
-	},
-	"aspect-1": {
-		"style": {
-			"aspectRatio": 1
+			"display": "none"
 		}
 	}
 }

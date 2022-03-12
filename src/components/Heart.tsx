@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Svg, { Path } from 'react-native-svg';
 import { useTailwind } from 'tailwind-rn';
+import { Margin } from '../types/ui';
 
 export type HeartRatio = 'full' | 'half' | 'empty';
 
@@ -8,11 +9,7 @@ type Props = {
   width?: number;
   height?: number;
   ratio?: HeartRatio;
-  marginTop?: number;
-  marginBottom?: number;
-  marginLeft?: number;
-  marginRight?: number;
-};
+} & Margin;
 
 const Heart: FC<Props> = ({
   width = 18,

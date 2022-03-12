@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['src/**/*.tsx'],
@@ -24,43 +23,15 @@ module.exports = {
       width: {
         avatar: 45,
         card_xl: 312,
+        card: 195,
       },
 
-      padding: {
-        58: '58px',
-      },
       borderRadius: {
         card_xl: 12,
-        card_sm: 10,
+        card: 10,
       },
     },
   },
   corePlugins: require('tailwind-rn/unsupported-core-plugins'),
-  plugins: [
-    plugin(function ({ addUtilities }) {
-      addUtilities({
-        '.content-auto': {
-          'content-visibility': 'auto',
-        },
-        '.content-hidden': {
-          'content-visibility': 'hidden',
-        },
-        '.content-visible': {
-          'content-visibility': 'visible',
-        },
-
-        // #region For react Native
-        'aspect-4*3': {
-          aspectRatio: 4 / 3,
-        },
-        'aspect-2*1': {
-          aspectRatio: 2 / 1,
-        },
-        'aspect-1': {
-          aspectRatio: 1,
-        },
-        // #endregion
-      });
-    }),
-  ],
+  plugins: [require('tailwind-scrollbar-hide')],
 };
