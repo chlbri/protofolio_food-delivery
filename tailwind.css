@@ -1,21 +1,73 @@
+.ml-2 {
+  margin-left: 0.5rem
+}
+
+.mt-\[7px\] {
+  margin-top: 7px
+}
+
+.mt-4 {
+  margin-top: 1rem
+}
+
 .mt-3 {
   margin-top: 0.75rem
+}
+
+.mt-\[34px\] {
+  margin-top: 34px
+}
+
+.mt-\[21px\] {
+  margin-top: 21px
+}
+
+.ml-\[8px\] {
+  margin-left: 8px
+}
+
+.mt-\[9px\] {
+  margin-top: 9px
+}
+
+.mt-px {
+  margin-top: 1px
 }
 
 .flex {
   display: flex
 }
 
-.h-2 {
-  height: 0.5rem
+.w-full {
+  width: 100%
 }
 
-.h-4 {
-  height: 1rem
+.w-2 {
+  width: 0.5rem
 }
 
-.h-3 {
-  height: 0.75rem
+.w-avatar {
+  width: 45px
+}
+
+.w-card_xl {
+  width: 312px
+}
+
+.w-\[11px\] {
+  width: 11px
+}
+
+.w-\[2px\] {
+  width: 2px
+}
+
+.w-\[3px\] {
+  width: 3px
+}
+
+.flex-row {
+  flex-direction: row
 }
 
 .flex-col {
@@ -26,11 +78,136 @@
   align-items: center
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem
+.justify-between {
+  justify-content: space-between
+}
+
+.rounded-full {
+  border-radius: 9999px
+}
+
+.rounded-xl {
+  border-radius: 0.75rem
+}
+
+.rounded-card_xl {
+  border-radius: 12px
+}
+
+.border-2 {
+  border-width: 2px
+}
+
+.border-bgray {
+  --tw-border-opacity: 1;
+  border-color: rgb(128 128 128 / var(--tw-border-opacity))
+}
+
+.bg-accent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 155 6 / var(--tw-bg-opacity))
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity))
+}
+
+.p-\[15px\] {
+  padding: 15px
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem
+}
+
+.pt-\[25px\] {
+  padding-top: 25px
+}
+
+.pt-\[3px\] {
+  padding-top: 3px
+}
+
+.text-h1 {
+  font-size: 36;
+  line-height: 51;
+  letter-spacing: 0
+}
+
+.text-h2 {
+  font-size: 24;
+  line-height: 34;
+  letter-spacing: 0
+}
+
+.text-h3 {
+  font-size: 16;
+  line-height: 23;
+  letter-spacing: 0
+}
+
+.text-title {
+  font-size: 18;
+  line-height: 25;
+  letter-spacing: 0
+}
+
+.text-base {
+  font-size: 14;
+  line-height: 20;
+  letter-spacing: 0
+}
+
+.text-sm {
+  font-size: 12;
+  line-height: 17;
+  letter-spacing: 0
 }
 
 .font-bold {
   font-weight: 700
+}
+
+.text-accent {
+  --tw-text-opacity: 1;
+  color: rgb(229 155 6 / var(--tw-text-opacity))
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.text-native_blue {
+  --tw-text-opacity: 1;
+  color: rgb(26 27 32 / var(--tw-text-opacity))
+}
+
+.text-bgray {
+  --tw-text-opacity: 1;
+  color: rgb(128 128 128 / var(--tw-text-opacity))
+}
+
+aspect-4*3 {
+  aspect-ratio: 1.3333333333333333px
+}
+
+aspect-2*1 {
+  aspect-ratio: 2px
+}
+
+aspect-1 {
+  aspect-ratio: 1px
 }

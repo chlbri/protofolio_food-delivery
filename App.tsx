@@ -9,7 +9,7 @@ export default function App() {
     <TailwindProvider utilities={utilities}>
       <View style={styles.container}>
         <Home />
-        <StatusBar style="auto" />
+        <StatusBar style="light" animated />
       </View>
     </TailwindProvider>
   );
@@ -18,8 +18,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#1a1b20',
   },
 });
