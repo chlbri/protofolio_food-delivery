@@ -14,9 +14,9 @@ const _styles: Utilities = {
     style: {
       shadowOpacity: 28 / 100,
       shadowColor: 'black',
-      shadowOffset: { width: -2, height: 10 },
-      shadowRadius: 2,
-      elevation: 13,
+      shadowOffset: { width: -2, height: 5 },
+      shadowRadius: 3,
+      elevation: 6,
     },
   },
   'aspect-3/2': {

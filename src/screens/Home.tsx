@@ -1,19 +1,31 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { FC } from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
-import BaseCard from './components/BaseCard';
-import LargeCard from './components/LargeCard';
+import BaseCard from '../components/BaseCard';
+import LargeCard from '../components/LargeCard';
+import _Layout from '../components/_Layout';
+import useNavigation from '../hooks/useNavigation';
 
 type Props = {};
 
-const Home: FC<Props> = () => {
+const HomeScreen: FC<Props> = () => {
   const tailwind = useTailwind();
+  const { navigate } = useNavigation();
 
   return (
-    <SafeAreaView style={tailwind('pb-[25px]')}>
+    <_Layout>
       <ScrollView>
-        <View style={tailwind('p-[10px] pt-[25px]')}>
+        <View style={tailwind('p-[10px] pt-[15px]')}>
+          <TouchableOpacity
+            onPress={() => {
+              navigate('Connection');
+            }}
+          >
+            <Text style={tailwind('text-xs text-bgray ml-[18px]')}>
+              {'< se déconnecter'}
+            </Text>
+          </TouchableOpacity>
           <Text style={tailwind('font-bold text-h1 text-white ml-[18px]')}>
             Caviar
           </Text>
@@ -64,8 +76,8 @@ const Home: FC<Props> = () => {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </_Layout>
   );
 };
 
-export default Home;
+export default HomeScreen;

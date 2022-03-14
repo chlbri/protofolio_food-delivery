@@ -25,6 +25,10 @@ module.exports = {
         card_xl: 312,
         card: 195,
       },
+      maxWidth: {
+        '4/5': '80%',
+        '11/12': `${(100 * 11) / 12}%`,
+      },
 
       borderRadius: {
         card_xl: 12,
