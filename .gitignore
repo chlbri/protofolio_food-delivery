@@ -153,3 +153,6 @@ yarn.lock
 
 #vscode
 .vscode
+
+#Typegen
+**/*.typegen.ts

@@ -15,6 +15,7 @@ plugins:
 rules:
   indent: 0
   "@typescript-eslint/no-explicit-any": off
+  "@typescript-eslint/ban-types": off
   linebreak-style: 0
   quotes: 0
   semi: 0
