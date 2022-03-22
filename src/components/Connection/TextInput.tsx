@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { TextInput as RN_TextInput, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
+import tailwindConfig from '../../../tailwind.config';
 import { Margin } from '../../types/ui';
 
 type Props = { placeholder: string } & Margin;
@@ -26,9 +27,11 @@ const TextInput: FC<Props> = ({
       <RN_TextInput
         style={[tailwind('text-title text-native_blue')]}
         placeholder={placeholder}
-        placeholderTextColor={tailwind('text-bgray').color as any}
+        placeholderTextColor={tailwindConfig.theme.colors.bgray}
       />
-      {children}
+      <View style={tailwind('min-w-[30px] flex flex-col items-center')}>
+        {children}
+      </View>
     </View>
   );
 };

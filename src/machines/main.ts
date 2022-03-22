@@ -2,74 +2,152 @@ import { createMachine } from 'xstate';
 
 export const mainMachine = createMachine(
   {
-    id: 'mainMachine',
+    id: 'Machine v0_0_2',
     type: 'parallel',
     states: {
-      fetch: {
-        type: 'parallel',
+      main: {
+        initial: 'idle',
         states: {
-          auth: {
-            type: 'parallel',
+          idle: {
+            description: 'When the app is not launched\n',
+            on: {
+              START: {
+                description: 'Start the app',
+                target: '#Machine v0_0_2.main.checkingEnvVariables',
+              },
+            },
+          },
+          checkingEnvVariables: {
+            exit: 'inc',
+            description:
+              'If you have env variables to load, you check each',
+            always: [
+              {
+                description: 'Environment variables are loaded\n',
+                cond: 'EnvironmentsVariablesAreLoaded',
+                target: '#Machine v0_0_2.main.preparing',
+              },
+              {
+                actions: 'addNotEnvVariablesError',
+                internal: false,
+                description: 'Not all envrionment variables are loaded',
+                target: '#Machine v0_0_2.main.checkingEnvVariables',
+              },
+            ],
+          },
+          preparing: {
+            exit: 'inc',
+            invoke: {
+              src: 'prepare',
+              onDone: [
+                {
+                  target: '#Machine v0_0_2.main.STARTING',
+                },
+              ],
+            },
+            description: 'Computer memory checking',
+          },
+          STARTING: {
+            exit: 'inc',
+            invoke: {
+              src: 'start',
+              onDone: [
+                {
+                  target: '#Machine v0_0_2.main.STARTED',
+                },
+              ],
+            },
+            description: 'Caching actions',
+          },
+          STARTED: {
+            initial: 'notAuthenticated',
+            description: 'The app is started, first screen',
             states: {
+              notAuthenticated: {
+                exit: 'inc',
+                on: {
+                  'LOGIN.EMAIL_PASSWORD': {
+                    target:
+                      '#Machine v0_0_2.main.STARTED.emailPassword.login',
+                  },
+                  'REGISTER.EMAIL_PASSWORD': {
+                    target:
+                      '#Machine v0_0_2.main.STARTED.emailPassword.register',
+                  },
+                  'LOGIN.FACEBOOK': {
+                    target: '#Machine v0_0_2.main.STARTED.facebook.login',
+                  },
+                  'REGISTER.FACEBOOK': {
+                    target:
+                      '#Machine v0_0_2.main.STARTED.facebook.register',
+                  },
+                  'LOGIN.GOOGLE': {
+                    target: '#Machine v0_0_2.main.STARTED.google.login',
+                  },
+                  'REGISTER.GOOGLE': {
+                    target: '#Machine v0_0_2.main.STARTED.google.register',
+                  },
+                  'LOGIN.APPLE': {
+                    target: '#Machine v0_0_2.main.STARTED.Apple.login',
+                  },
+                  'REGISTER.APPLE': {
+                    target: '#Machine v0_0_2.main.STARTED.Apple.register',
+                  },
+                },
+              },
+              authenticated: {
+                exit: 'inc',
+                type: 'parallel',
+                states: {
+                  navigation: {},
+                  cart: {},
+                },
+                on: {
+                  LOGOUT: {
+                    target:
+                      '#Machine v0_0_2.main.STARTED.notAuthenticated',
+                  },
+                },
+              },
               emailPassword: {
                 type: 'parallel',
                 states: {
                   login: {
-                    states: {
-                      idle: {
-                        on: {
-                          LOG: 'logging',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'logByEmailPassword',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logging: {
-                        invoke: {
-                          src: 'logByEmailPassword',
-                          onDone: {
-                            actions: 'log',
-                            target: 'logged',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addLogByEmailPasswordError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logged: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: {
-                        exit: 'inc',
-                      },
+                      ],
                     },
                   },
                   register: {
-                    states: {
-                      idle: {
-                        on: {
-                          REGISTER: 'registering',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'registerByEmailPassword',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registering: {
-                        invoke: {
-                          src: 'registerByEmailPassword',
-                          onDone: {
-                            actions: 'log',
-                            target: 'registered',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addRegisterByEmailPAsswordError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registered: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                 },
@@ -78,59 +156,41 @@ export const mainMachine = createMachine(
                 type: 'parallel',
                 states: {
                   login: {
-                    states: {
-                      idle: {
-                        on: {
-                          LOG: 'logging',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'logByFacebook',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logging: {
-                        invoke: {
-                          src: 'logByFacebook',
-                          onDone: {
-                            actions: 'log',
-                            target: 'logged',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'adLogByFacebookError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logged: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                   register: {
-                    states: {
-                      idle: {
-                        on: {
-                          REGISTER: 'registering',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'registerByFacebook',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registering: {
-                        invoke: {
-                          src: 'registerByFacebook',
-                          onDone: {
-                            actions: 'log',
-                            target: 'registered',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addRegisterByPasswordError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registered: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                 },
@@ -139,120 +199,84 @@ export const mainMachine = createMachine(
                 type: 'parallel',
                 states: {
                   login: {
-                    states: {
-                      idle: {
-                        on: {
-                          LOG: 'logging',
+                    exit: 'i,nc',
+                    invoke: {
+                      src: 'logByGoogle',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logging: {
-                        invoke: {
-                          src: 'logByGoogle',
-                          onDone: {
-                            actions: 'log',
-                            target: 'logged',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addLogByGoogleError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logged: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                   register: {
-                    states: {
-                      idle: {
-                        on: {
-                          REGISTER: 'registering',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'registerByGoogle',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registering: {
-                        invoke: {
-                          src: 'registerByGoogle',
-                          onDone: {
-                            actions: 'log',
-                            target: 'registered',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addRegisterByGoogleError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registered: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                 },
               },
-              apple: {
+              Apple: {
                 type: 'parallel',
                 states: {
                   login: {
-                    states: {
-                      idle: {
-                        on: {
-                          LOG: 'logging',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'logByApple',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logging: {
-                        invoke: {
-                          src: 'logByApple',
-                          onDone: {
-                            actions: 'log',
-                            target: 'logged',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addLogByAppleError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      logged: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                   register: {
-                    states: {
-                      idle: {
-                        on: {
-                          REGISTER: 'registering',
+                    exit: 'inc',
+                    invoke: {
+                      src: 'registerByApple',
+                      onDone: [
+                        {
+                          target:
+                            '#Machine v0_0_2.main.STARTED.authenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registering: {
-                        invoke: {
-                          src: 'registerByApple',
-                          onDone: {
-                            actions: 'log',
-                            target: 'registered',
-                          },
-                          onError: 'error',
+                      ],
+                      onError: [
+                        {
+                          actions: 'addRegisterByAppleError',
+                          target:
+                            '#Machine v0_0_2.main.STARTED.notAuthenticated',
                         },
-                        exit: 'inc',
-                      },
-                      registered: {
-                        after: {
-                          20: '#mainMachine.main.started.authenticated',
-                        },
-                        exit: 'inc',
-                      },
-                      error: { exit: 'inc' },
+                      ],
                     },
                   },
                 },
@@ -261,105 +285,8 @@ export const mainMachine = createMachine(
           },
         },
       },
-      errors: {
-        initial: 'noError',
-        states: {
-          noError: { exit: 'inc' },
-          errors: {
-            type: 'parallel',
-            states: {
-              environmentsVariablesAreNotLoaded: {
-                exit: 'inc',
-              },
-              preparing: {
-                type: 'parallel',
-                states: {},
-              },
-              starting: {
-                type: 'parallel',
-                states: {},
-              },
-              auth: {},
-            },
-          },
-        },
-      },
-      main: {
-        initial: 'idle',
-        states: {
-          idle: {
-            on: {
-              START: {
-                actions: ['loadSome'],
-              },
-            },
-            exit: 'inc',
-          },
-          checkingEnvVariables: {
-            always: [
-              {
-                cond: 'EnvironmentsVariablesAreLoaded',
-                target: 'preparing',
-              },
-              '#mainMachine.errors.errors.environmentsVariablesAreNotLoaded',
-            ],
-            exit: 'inc',
-          },
-          preparing: {
-            invoke: {
-              src: 'prepare',
-              onDone: {
-                target: 'starting',
-              },
-            },
-            exit: 'inc',
-          },
-
-          starting: {
-            invoke: {
-              src: 'start',
-              onDone: {
-                target: 'started',
-              },
-            },
-            exit: 'inc',
-          },
-          started: {
-            states: {
-              notAuthenticated: {
-                on: {
-                  FACEBOOK_LOG: {},
-                  FACEBOOK_REGISTER: {},
-                  GOOGLE_LOG: {},
-                  GOOGLE_REGISTER: {},
-                  APPLE_LOG: {},
-                  APPLE_REGISTER: {},
-                  EMAIL_PASSWORD_LOG: {
-                    target:
-                      '#mainMachine.fetch.auth.emailPassword.login.logging',
-                    actions: ['assignTempEmailAndPassword'],
-                  },
-                  EMAIL_PASSWORD_REGISTER: {
-                    target:
-                      '#mainMachine.fetch.auth.emailPassword.register.registering',
-                    actions: ['assignTempEmailAndPassword'],
-                  },
-                },
-                exit: 'inc',
-              },
-              authenticated: {
-                type: 'parallel',
-                on: {
-                  LOGOUT: 'notAuthenticated',
-                },
-                states: {
-                  navigation: {},
-                },
-                exit: 'inc',
-              },
-            },
-          },
-        },
+      analytics: {
+        type: 'parallel',
       },
     },
     tsTypes: {} as import('./main.typegen').Typegen0,

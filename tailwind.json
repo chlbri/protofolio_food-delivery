@@ -1,10 +1,79 @@
 {
+	"absolute": {
+		"style": {
+			"position": "absolute"
+		}
+	},
+	"sticky": {
+		"style": {
+			"position": "sticky"
+		}
+	},
+	"bottom-[30px]": {
+		"style": {
+			"bottom": 30
+		}
+	},
+	"bottom-[50px]": {
+		"style": {
+			"bottom": 50
+		}
+	},
+	"z-30": {
+		"style": {
+			"zIndex": 30
+		}
+	},
 	"m-[5px]": {
 		"style": {
 			"marginTop": 5,
 			"marginRight": 5,
 			"marginBottom": 5,
 			"marginLeft": 5
+		}
+	},
+	"m-auto": {
+		"style": {
+			"marginTop": "auto",
+			"marginRight": "auto",
+			"marginBottom": "auto",
+			"marginLeft": "auto"
+		}
+	},
+	"my-1": {
+		"style": {
+			"marginTop": 4,
+			"marginBottom": 4
+		}
+	},
+	"my-2": {
+		"style": {
+			"marginTop": 8,
+			"marginBottom": 8
+		}
+	},
+	"my-[4px]": {
+		"style": {
+			"marginTop": 4,
+			"marginBottom": 4
+		}
+	},
+	"my-[20px]": {
+		"style": {
+			"marginTop": 20,
+			"marginBottom": 20
+		}
+	},
+	"my-[10px]": {
+		"style": {
+			"marginTop": 10,
+			"marginBottom": 10
+		}
+	},
+	"mx-auto": {
+		"style": {
+			"marginLeft": "auto",
+			"marginRight": "auto"
 		}
 	},
 	"mt-[7px]": {
@@ -87,6 +156,46 @@
 			"marginLeft": 13
 		}
 	},
+	"mt-[4px]": {
+		"style": {
+			"marginTop": 4
+		}
+	},
+	"mt-[3px]": {
+		"style": {
+			"marginTop": 3
+		}
+	},
+	"mt-[13px]": {
+		"style": {
+			"marginTop": 13
+		}
+	},
+	"mt-[20px]": {
+		"style": {
+			"marginTop": 20
+		}
+	},
+	"mt-[17px]": {
+		"style": {
+			"marginTop": 17
+		}
+	},
+	"mt-[]": {
+		"style": {
+			"marginTop": ""
+		}
+	},
+	"mb-3": {
+		"style": {
+			"marginBottom": 12
+		}
+	},
+	"mb-[15px]": {
+		"style": {
+			"marginBottom": 15
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -117,9 +226,34 @@
 			"height": 40
 		}
 	},
+	"h-[26px]": {
+		"style": {
+			"height": 26
+		}
+	},
+	"h-[60px]": {
+		"style": {
+			"height": 60
+		}
+	},
 	"min-h-[300px]": {
 		"style": {
 			"minHeight": 300
+		}
+	},
+	"min-h-[350px]": {
+		"style": {
+			"minHeight": 350
+		}
+	},
+	"min-h-[550px]": {
+		"style": {
+			"minHeight": 550
+		}
+	},
+	"min-h-[510px]": {
+		"style": {
+			"minHeight": 510
 		}
 	},
 	"w-avatar": {
@@ -167,6 +301,26 @@
 			"width": 312
 		}
 	},
+	"w-[26px]": {
+		"style": {
+			"width": 26
+		}
+	},
+	"w-8/12": {
+		"style": {
+			"width": "66.666667%"
+		}
+	},
+	"w-5/6": {
+		"style": {
+			"width": "83.333333%"
+		}
+	},
+	"min-w-[30px]": {
+		"style": {
+			"minWidth": 30
+		}
+	},
 	"max-w-full": {
 		"style": {
 			"maxWidth": "100%"
@@ -182,6 +336,13 @@
 			"flexGrow": 1,
 			"flexShrink": 1,
 			"flexBasis": "0%"
+		}
+	},
+	"flex-[.1]": {
+		"style": {
+			"flexGrow": 0.1,
+			"flexShrink": 1,
+			"flexBasis": 0
 		}
 	},
 	"flex-row": {
@@ -275,6 +436,26 @@
 			"backgroundColor": "rgb(0 0 0 / var(--tw-bg-opacity))"
 		}
 	},
+	"bg-native_blue/30": {
+		"style": {
+			"backgroundColor": "rgb(26 27 32 / 0.3)"
+		}
+	},
+	"bg-native_blue/70": {
+		"style": {
+			"backgroundColor": "rgb(26 27 32 / 0.7)"
+		}
+	},
+	"bg-native_blue/60": {
+		"style": {
+			"backgroundColor": "rgb(26 27 32 / 0.6)"
+		}
+	},
+	"bg-native_blue/50": {
+		"style": {
+			"backgroundColor": "rgb(26 27 32 / 0.5)"
+		}
+	},
 	"p-[10px]": {
 		"style": {
 			"paddingTop": 10,
@@ -311,6 +492,36 @@
 		"style": {
 			"paddingLeft": 25,
 			"paddingRight": 25
+		}
+	},
+	"px-[30px]": {
+		"style": {
+			"paddingLeft": 30,
+			"paddingRight": 30
+		}
+	},
+	"py-5": {
+		"style": {
+			"paddingTop": 20,
+			"paddingBottom": 20
+		}
+	},
+	"py-[20px]": {
+		"style": {
+			"paddingTop": 20,
+			"paddingBottom": 20
+		}
+	},
+	"py-[50px]": {
+		"style": {
+			"paddingTop": 50,
+			"paddingBottom": 50
+		}
+	},
+	"py-[25px]": {
+		"style": {
+			"paddingTop": 25,
+			"paddingBottom": 25
 		}
 	},
 	"pb-[5px]": {
@@ -356,6 +567,41 @@
 	"pb-[2px]": {
 		"style": {
 			"paddingBottom": 2
+		}
+	},
+	"pt-[42px]": {
+		"style": {
+			"paddingTop": 42
+		}
+	},
+	"pt-[52px]": {
+		"style": {
+			"paddingTop": 52
+		}
+	},
+	"pt-[61px]": {
+		"style": {
+			"paddingTop": 61
+		}
+	},
+	"pt-[6px]": {
+		"style": {
+			"paddingTop": 6
+		}
+	},
+	"pt-[10px]": {
+		"style": {
+			"paddingTop": 10
+		}
+	},
+	"pt-[25px]": {
+		"style": {
+			"paddingTop": 25
+		}
+	},
+	"pb-[120px]": {
+		"style": {
+			"paddingBottom": 120
 		}
 	},
 	"text-h1": {

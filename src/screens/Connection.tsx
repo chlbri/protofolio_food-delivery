@@ -13,6 +13,7 @@ import AuthButton from '../components/Connection/AuthButton';
 import Socials from '../components/Connection/Socials';
 import TextInput from '../components/Connection/TextInput';
 import Cadenas from '../components/svg/Cadenas';
+import Signal from '../components/svg/Signal';
 import _Layout from '../components/_Layout';
 
 const ConnectionScreen: FC = () => {
@@ -44,7 +45,9 @@ const ConnectionScreen: FC = () => {
               imageStyle={tailwind('m-[5px]')}
               blurRadius={3}
             >
-              <TextInput placeholder="Login..."></TextInput>
+              <TextInput placeholder="Login...">
+                <Signal fillColor="gray" />
+              </TextInput>
               <TextInput marginTop={32} placeholder="Password...">
                 <Cadenas fillColor="gray" />
               </TextInput>
