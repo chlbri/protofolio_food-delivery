@@ -35,7 +35,7 @@ const AuthButton: FC<Props> = ({
         ]}
       >
         <Image source={BackConnSm} style={tailwind('w-[18px] h-[16px]')} />
-        <Text style={tailwind('text-h2 text-white')}>{children}</Text>
+        <Text style={tailwind('text-title text-white')}>{children}</Text>
         <Image source={BackConnSm} style={tailwind('w-[18px] h-[16px]')} />
       </View>
     </TouchableOpacity>

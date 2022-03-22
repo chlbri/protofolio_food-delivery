@@ -12,6 +12,7 @@ import Powered from '../../assets/images/socials/powered.png';
 import AuthButton from '../components/Connection/AuthButton';
 import Socials from '../components/Connection/Socials';
 import TextInput from '../components/Connection/TextInput';
+import Cadenas from '../components/svg/Cadenas';
 import _Layout from '../components/_Layout';
 
 const ConnectionScreen: FC = () => {
@@ -43,9 +44,11 @@ const ConnectionScreen: FC = () => {
               imageStyle={tailwind('m-[5px]')}
               blurRadius={3}
             >
-              <TextInput />
-              <TextInput marginTop={32} placeholder="Password..." />
-              <AuthButton marginTop={59}>Login</AuthButton>
+              <TextInput placeholder="Login..."></TextInput>
+              <TextInput marginTop={32} placeholder="Password...">
+                <Cadenas fillColor="gray" />
+              </TextInput>
+              <AuthButton marginTop={59}>{'Login & eat'}</AuthButton>
             </ImageBackground>
           </View>
           <Socials marginTop={47} />
