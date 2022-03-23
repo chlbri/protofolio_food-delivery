@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-app",
-    "slug": "rn-app",
+    "name": "FoodiVoo",
+    "slug": "FoodiVoo",
     "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
