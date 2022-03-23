@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import { Margin } from '../../types/ui';
 import Avatar from '../Avatar';
 import Hearts from '../Hearts';
+import Text from '../Text';
 
 type Props = {
   name?: string;
@@ -33,9 +34,9 @@ const Person: FC<Props> = ({
       <Text style={tailwind('text-base text-white')}>{name}</Text>
       <View style={tailwind('mt-[9px] flex flex-row')}>
         <Avatar />
-        <View style={tailwind('ml-[11px]')}>
+        <View style={tailwind('ml-[11px] justify-center')}>
           <Hearts />
-          <Text style={tailwind('text-sm text-bgray mt-px')}>
+          <Text style={tailwind('text-sm text-bgray mt-[5px]')}>
             {bestComment}
           </Text>
         </View>

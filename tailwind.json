@@ -35,16 +35,16 @@
 			"marginLeft": "auto"
 		}
 	},
-	"mx-auto": {
-		"style": {
-			"marginLeft": "auto",
-			"marginRight": "auto"
-		}
-	},
 	"my-[10px]": {
 		"style": {
 			"marginTop": 10,
 			"marginBottom": 10
+		}
+	},
+	"mx-auto": {
+		"style": {
+			"marginLeft": "auto",
+			"marginRight": "auto"
 		}
 	},
 	"mt-[9px]": {
@@ -57,6 +57,11 @@
 			"marginLeft": 11
 		}
 	},
+	"mb-[3px]": {
+		"style": {
+			"marginBottom": 3
+		}
+	},
 	"ml-[4px]": {
 		"style": {
 			"marginLeft": 4
@@ -67,19 +72,19 @@
 			"marginTop": 59
 		}
 	},
-	"ml-[38px]": {
-		"style": {
-			"marginLeft": 38
-		}
-	},
 	"mt-[15px]": {
 		"style": {
 			"marginTop": 15
 		}
 	},
-	"mt-px": {
+	"ml-[38px]": {
 		"style": {
-			"marginTop": 1
+			"marginLeft": 38
+		}
+	},
+	"mt-[5px]": {
+		"style": {
+			"marginTop": 5
 		}
 	},
 	"mt-[21px]": {
@@ -162,24 +167,19 @@
 			"height": 38
 		}
 	},
-	"h-[40px]": {
-		"style": {
-			"height": 40
-		}
-	},
 	"h-[53px]": {
 		"style": {
 			"height": 53
 		}
 	},
-	"h-[60px]": {
-		"style": {
-			"height": 60
-		}
-	},
 	"h-[26px]": {
 		"style": {
 			"height": 26
+		}
+	},
+	"h-[60px]": {
+		"style": {
+			"height": 60
 		}
 	},
 	"min-h-[300px]": {
@@ -212,6 +212,11 @@
 			"width": 292
 		}
 	},
+	"w-[30px]": {
+		"style": {
+			"width": 30
+		}
+	},
 	"w-card_xl": {
 		"style": {
 			"width": 312
@@ -220,6 +225,11 @@
 	"w-[121px]": {
 		"style": {
 			"width": 121
+		}
+	},
+	"w-[26px]": {
+		"style": {
+			"width": 26
 		}
 	},
 	"w-full": {
@@ -232,11 +242,6 @@
 			"width": "83.333333%"
 		}
 	},
-	"w-[26px]": {
-		"style": {
-			"width": 26
-		}
-	},
 	"w-avatar": {
 		"style": {
 			"width": 45
@@ -245,11 +250,6 @@
 	"w-card": {
 		"style": {
 			"width": 195
-		}
-	},
-	"min-w-[30px]": {
-		"style": {
-			"minWidth": 30
 		}
 	},
 	"max-w-full": {
@@ -279,9 +279,24 @@
 			"flexDirection": "column"
 		}
 	},
+	"items-end": {
+		"style": {
+			"alignItems": "flex-end"
+		}
+	},
 	"items-center": {
 		"style": {
 			"alignItems": "center"
+		}
+	},
+	"justify-end": {
+		"style": {
+			"justifyContent": "flex-end"
+		}
+	},
+	"justify-center": {
+		"style": {
+			"justifyContent": "center"
 		}
 	},
 	"justify-between": {
@@ -342,16 +357,16 @@
 			"backgroundColor": "rgb(238 238 238 / var(--tw-bg-opacity))"
 		}
 	},
-	"bg-native_blue": {
-		"style": {
-			"--tw-bg-opacity": 1,
-			"backgroundColor": "rgb(26 27 32 / var(--tw-bg-opacity))"
-		}
-	},
 	"bg-accent": {
 		"style": {
 			"--tw-bg-opacity": 1,
 			"backgroundColor": "rgb(229 155 6 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-native_blue": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(26 27 32 / var(--tw-bg-opacity))"
 		}
 	},
 	"bg-bgray": {
@@ -374,6 +389,12 @@
 			"paddingRight": 22
 		}
 	},
+	"py-[10px]": {
+		"style": {
+			"paddingTop": 10,
+			"paddingBottom": 10
+		}
+	},
 	"px-[25px]": {
 		"style": {
 			"paddingLeft": 25,
@@ -386,10 +407,22 @@
 			"paddingRight": 10
 		}
 	},
+	"px-[15px]": {
+		"style": {
+			"paddingLeft": 15,
+			"paddingRight": 15
+		}
+	},
 	"px-[30px]": {
 		"style": {
 			"paddingLeft": 30,
 			"paddingRight": 30
+		}
+	},
+	"px-[2px]": {
+		"style": {
+			"paddingLeft": 2,
+			"paddingRight": 2
 		}
 	},
 	"px-4": {
@@ -461,37 +494,51 @@
 	},
 	"text-base": {
 		"style": {
-			"fontSize": 14
+			"fontSize": 14,
+			"lineHeight": 20,
+			"letterSpacing": 0
 		}
 	},
 	"text-xs": {
 		"style": {
-			"fontSize": 10
+			"fontSize": 10,
+			"lineHeight": 14,
+			"letterSpacing": 0
 		}
 	},
 	"text-title": {
 		"style": {
-			"fontSize": 18
+			"fontSize": 18,
+			"lineHeight": 25,
+			"letterSpacing": 0
 		}
 	},
 	"text-sm": {
 		"style": {
-			"fontSize": 12
+			"fontSize": 12,
+			"lineHeight": 17,
+			"letterSpacing": 0
 		}
 	},
 	"text-h1": {
 		"style": {
-			"fontSize": 36
-		}
-	},
-	"text-h2": {
-		"style": {
-			"fontSize": 24
+			"fontSize": 36,
+			"lineHeight": 51,
+			"letterSpacing": 0
 		}
 	},
 	"text-h3": {
 		"style": {
-			"fontSize": 16
+			"fontSize": 16,
+			"lineHeight": 23,
+			"letterSpacing": 0
+		}
+	},
+	"text-h2": {
+		"style": {
+			"fontSize": 24,
+			"lineHeight": 34,
+			"letterSpacing": 0
 		}
 	},
 	"font-bold": {

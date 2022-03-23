@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import { Margin } from '../../types/ui';
+import Text from '../Text';
 
 type Props = {
   tags: string[];
