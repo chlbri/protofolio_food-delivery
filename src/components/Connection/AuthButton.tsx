@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import BackConnSm from '../../../assets/images/back_conn_sm.png';
 import useNavigation from '../../hooks/useNavigation';
 import { Margin } from '../../types/ui';
+import Text from '../Text';
 
 type Props = {
   children?: string;
@@ -35,7 +36,12 @@ const AuthButton: FC<Props> = ({
         ]}
       >
         <Image source={BackConnSm} style={tailwind('w-[18px] h-[16px]')} />
-        <Text style={tailwind('text-title text-white')}>{children}</Text>
+        <Text
+          style={[tailwind('text-title text-white')]}
+          fontFamily="AvenirNext_semiBold"
+        >
+          {children}
+        </Text>
         <Image source={BackConnSm} style={tailwind('w-[18px] h-[16px]')} />
       </View>
     </TouchableOpacity>

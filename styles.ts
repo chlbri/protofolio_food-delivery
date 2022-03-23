@@ -43,6 +43,7 @@ const _styles: Utilities = {
       aspectRatio: 1,
     },
   },
+  
 };
 
 export default _styles;

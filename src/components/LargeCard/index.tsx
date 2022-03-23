@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import useNavigation from '../../hooks/useNavigation';
 import { Margin } from '../../types/ui';
+import Text from '../Text';
 import Person from './Person';
 
 type Props = {
