@@ -13,6 +13,8 @@ export const AVENIR_NEXT = {
   AvenirNext_ultraLightItalic: require('../assets/fonts/AvenirNext/AvenirNext-UltraLightItalic.ttf'),
 } as const;
 
-export const FONTS = { ...AVENIR_NEXT } as const;
+const FONTS = { ...AVENIR_NEXT } as const;
+
+export default FONTS;
 
 export type FontFamilies = keyof typeof FONTS;
