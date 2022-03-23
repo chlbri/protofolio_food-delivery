@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { FC } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import BaseCard from '../components/BaseCard';
 import LargeCard from '../components/LargeCard';
+import Text from '../components/Text';
 import _Layout from '../components/_Layout';
 import useNavigation from '../hooks/useNavigation';
 
@@ -35,7 +36,7 @@ const HomeScreen: FC<Props> = () => {
 
           <View
             style={tailwind(
-              'flex mt-4 flex-row items-center w-full justify-between',
+              'flex mt-4 flex-row items-center w-full justify-between px-[2px]',
             )}
           >
             <View
@@ -63,7 +64,7 @@ const HomeScreen: FC<Props> = () => {
             </View>
           </ScrollView>
           <View style={tailwind('mt-[40px]')}>
-            <Text style={tailwind('text-h2 text-white  ml-[5px]')}>
+            <Text style={tailwind('text-h2 text-white ml-[5px]')}>
               Amis
             </Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>

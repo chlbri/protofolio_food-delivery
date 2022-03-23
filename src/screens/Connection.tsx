@@ -1,11 +1,5 @@
 import { FC } from 'react';
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { Image, ImageBackground, ScrollView, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 import BackConn from '../../assets/images/back_conn.png';
 import Powered from '../../assets/images/socials/powered.png';
@@ -14,6 +8,7 @@ import Socials from '../components/Connection/Socials';
 import TextInput from '../components/Connection/TextInput';
 import Cadenas from '../components/svg/Cadenas';
 import Signal from '../components/svg/Signal';
+import Text from '../components/Text';
 import _Layout from '../components/_Layout';
 
 const ConnectionScreen: FC = () => {
@@ -30,10 +25,18 @@ const ConnectionScreen: FC = () => {
           ]}
         >
           <View style={tailwind('items-center')}>
-            <Text style={tailwind('text-h1 text-accent font-bold')}>
+            <Text
+              fontFamily="AvenirNext_semiBold"
+              style={[tailwind('text-h1 text-accent font-bold')]}
+            >
               FoodiVoo
             </Text>
-            <Text style={tailwind('text-title text-bgray mt-[7px]')}>
+            <Text
+              style={[
+                tailwind('text-title text-bgray mt-[7px]'),
+                { fontFamily: 'AvenirNext_regular' },
+              ]}
+            >
               Le resto qui s'invite chez vous !
             </Text>
             <ImageBackground

@@ -4,7 +4,6 @@ import {
   ImageBackground,
   Pressable,
   ScrollView,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -13,7 +12,87 @@ import mealImage from '../../assets/images/detailsMeal.png';
 import Avatar from '../components/Avatar';
 import Hearts from '../components/Hearts';
 import Arrow from '../components/svg/Arrow';
+import Text from '../components/Text';
 import useNavigation from '../hooks/useNavigation';
+
+type IngredientProps = {
+  label: string;
+  comments: string;
+  color: string;
+};
+
+const Ingredient: FC<IngredientProps> = ({ label, comments, color }) => {
+  const tailwind = useTailwind();
+  return (
+    <View
+      style={tailwind(
+        'flex flex-row justify-between items-center my-[10px]',
+      )}
+    >
+      <View>
+        <Text style={tailwind('text-base text-white')}>{label}</Text>
+        <Text style={tailwind('text-xs text-bgray')}>{comments}</Text>
+      </View>
+      <View
+        style={[
+          tailwind('w-[26px] h-[26px] rounded-full'),
+          { backgroundColor: color },
+        ]}
+      />
+    </View>
+  );
+};
+
+type PersonProps = {
+  name: string;
+  position: string;
+};
+
+const Person: FC<PersonProps> = ({ name, position }) => {
+  const tailwind = useTailwind();
+  return (
+    <View style={tailwind('flex flex-row')}>
+      <Avatar />
+      <View style={tailwind('ml-[11px] justify-center')}>
+        <Text style={tailwind('text-base text-white')}>{name}</Text>
+        <Text style={tailwind('text-xs text-bgray mt-[3px]')}>
+          {position}
+        </Text>
+      </View>
+    </View>
+  );
+};
+
+type PriceProps = {
+  price: number;
+  currency?: string;
+};
+
+const Price: FC<PriceProps> = ({ price, currency = '$' }) => {
+  const tailwind = useTailwind();
+  return (
+    <View
+      style={[
+        tailwind(
+          'rounded-full bg-accent px-[15px] aspect-1 items-center justify-center',
+        ),
+        { marginTop: 145 },
+      ]}
+    >
+      <View style={tailwind('m-auto flex flex-row items-end')}>
+        <Text>
+          <Text style={tailwind('text-h3')}>{currency}</Text>
+          <Text
+            style={tailwind('text-h1')}
+            fontFamily="AvenirNext_semiBold"
+          >
+            {price}
+          </Text>
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 const ingredients = [
   {
@@ -72,14 +151,26 @@ const DetailsScreen: FC = () => {
               <Pressable onPress={goBack}>
                 <Arrow />
               </Pressable>
-              <Hearts marginTop={240} />
-              <Text style={[tailwind('text-h1 text-white')]}>
+              <View style={[tailwind('flex flex-row justify-end')]}>
+                <Price price={9} currency="$" />
+              </View>
+              <Hearts marginTop={29} />
+              <Text
+                style={[tailwind('text-h1 text-white')]}
+                fontFamily="AvenirNext_semiBold"
+              >
                 Sticky Mixed Rice
               </Text>
-              <Text style={[tailwind('text-title text-white mt-[3px]')]}>
+              <Text
+                style={[tailwind('text-title text-white mt-[3px]')]}
+                fontFamily="AvenirNext_ultraLight"
+              >
                 Main
               </Text>
-              <Text style={[tailwind('text-base text-white mt-[21px]')]}>
+              <Text
+                style={[tailwind('text-base text-white mt-[21px]')]}
+                fontFamily="AvenirNext_mediumItalic"
+              >
                 Rice dish in which sticky glutinous rice is mixed with all
                 kinds of vegetables with sweet pomegranate or meat and
                 steamed
@@ -87,19 +178,12 @@ const DetailsScreen: FC = () => {
             </View>
           </ImageBackground>
           <View style={[tailwind('px-[30px] pt-[25px]')]}>
-            <View style={tailwind('flex flex-row')}>
-              <Avatar />
-              <View style={tailwind('ml-[11px]')}>
-                <Text style={tailwind('text-base text-white')}>
-                  Jack Olive
-                </Text>
-                <Text style={tailwind('text-xs text-bgray mt-[3px]')}>
-                  Caviar Head Sous Chef
-                </Text>
-              </View>
-            </View>
+            <Person name="Jack Olive" position="Caviar Head Sous Chef" />
             <View style={tailwind('mt-[13px]')}>
-              <Text style={tailwind('text-accent text-title')}>
+              <Text
+                style={tailwind('text-accent text-title')}
+                fontFamily="AvenirNext_medium"
+              >
                 Ingrédients
               </Text>
               <View style={tailwind('mt-[17px]')}>
@@ -117,7 +201,10 @@ const DetailsScreen: FC = () => {
             ' shadow-card_xl bg-accent w-5/6 h-[60px] mx-auto rounded-full',
           )}
         >
-          <Text style={tailwind('m-auto text-title text-white')}>
+          <Text
+            style={tailwind('m-auto text-title text-white')}
+            fontFamily="AvenirNext_semiBoldItalic"
+          >
             ADD TO CART FOR $9
           </Text>
         </TouchableOpacity>
@@ -127,30 +214,3 @@ const DetailsScreen: FC = () => {
 };
 
 export default DetailsScreen;
-type IngredientProps = {
-  label: string;
-  comments: string;
-  color: string;
-};
-
-const Ingredient: FC<IngredientProps> = ({ label, comments, color }) => {
-  const tailwind = useTailwind();
-  return (
-    <View
-      style={tailwind(
-        'flex flex-row justify-between items-center my-[10px]',
-      )}
-    >
-      <View>
-        <Text style={tailwind('text-base text-white')}>{label}</Text>
-        <Text style={tailwind('text-sm text-bgray')}>{comments}</Text>
-      </View>
-      <View
-        style={[
-          tailwind('w-[26px] h-[26px] rounded-full'),
-          { backgroundColor: color },
-        ]}
-      />
-    </View>
-  );
-};
