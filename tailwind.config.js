@@ -20,9 +20,6 @@ module.exports = {
       xs: 10,
     },
     extend: {
-      fontFamily: {
-        'sans-serif': ['fantasy'],
-      },
       width: {
         avatar: 45,
         card_xl: 312,
